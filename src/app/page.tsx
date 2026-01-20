@@ -74,13 +74,12 @@ function Hero() {
             </div>
 
             <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-              Construyo sistemas web con foco en{" "}
-              <span className="text-white/70">claridad, performance y negocio</span>.
+              Construyo sistemas web para buscar{" "}
+              <span className="text-white/70">claridad y rendimiento</span> en tu negocio.
             </h1>
 
             <p className="mt-4 max-w-xl text-white/70">
-              Desarrollo backends en .NET, bases en SQL Server y frontends modernos. Te armo un sistema prolijo,
-              escalable y fácil de mantener.
+              Desarrollo backends en .NET, bases en SQL Server y busco modernidad en frontends. Sistemas escalables y fáciles de mantener.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
