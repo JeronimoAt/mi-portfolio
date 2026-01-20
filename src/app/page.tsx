@@ -1,65 +1,306 @@
-import Image from "next/image";
+import { site, projects, testimonials } from "@/lib/data";
 
-export default function Home() {
+function Container({ children }: { children: React.ReactNode }) {
+  return <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">{children}</div>;
+}
+
+function Pill({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/80">
+      {children}
+    </span>
+  );
+}
+
+function SectionTitle({ kicker, title, desc }: { kicker?: string; title: string; desc?: string }) {
+  return (
+    <div className="mb-8">
+      {kicker ? <p className="text-sm text-white/60">{kicker}</p> : null}
+      <h2 className="mt-2 text-2xl font-semibold tracking-tight text-white sm:text-3xl">{title}</h2>
+      {desc ? <p className="mt-3 max-w-2xl text-white/70">{desc}</p> : null}
     </div>
+  );
+}
+
+function Header() {
+  const nav = [
+    { label: "Home", href: "#top" },
+    { label: "About", href: "#about" },
+    { label: "Projects", href: "#projects" },
+    { label: "Testimonials", href: "#testimonials" },
+    { label: "Contact", href: "#contact" },
+  ];
+
+  return (
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/40 backdrop-blur">
+      <Container>
+        <div className="flex h-14 items-center justify-between">
+          <a href="#top" className="font-semibold text-white">
+            {site.name}
+            <span className="text-white/50">.dev</span>
+          </a>
+
+          <nav className="hidden gap-6 text-sm text-white/70 md:flex">
+            {nav.map((n) => (
+              <a key={n.href} href={n.href} className="hover:text-white">
+                {n.label}
+              </a>
+            ))}
+          </nav>
+
+          <a
+            className="rounded-xl bg-white px-3 py-2 text-sm font-medium text-black hover:bg-white/90"
+            href={`https://wa.me/${site.whatsapp}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            WhatsApp
+          </a>
+        </div>
+      </Container>
+    </header>
+  );
+}
+
+function Hero() {
+  return (
+    <section id="top" className="relative overflow-hidden py-16 sm:py-24">
+      <Container>
+        <div className="grid items-center gap-10 md:grid-cols-2">
+          <div>
+            <div className="flex flex-wrap gap-2">
+              <Pill>{site.role}</Pill>
+              <Pill>{site.location}</Pill>
+            </div>
+
+            <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+              Construyo sistemas web con foco en{" "}
+              <span className="text-white/70">claridad, performance y negocio</span>.
+            </h1>
+
+            <p className="mt-4 max-w-xl text-white/70">
+              Desarrollo backends en .NET, bases en SQL Server y frontends modernos. Te armo un sistema prolijo,
+              escalable y fácil de mantener.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href="#projects"
+                className="rounded-xl bg-white px-4 py-2 font-medium text-black hover:bg-white/90"
+              >
+                Ver proyectos
+              </a>
+              <a
+                href="#contact"
+                className="rounded-xl border border-white/15 bg-white/5 px-4 py-2 font-medium text-white hover:bg-white/10"
+              >
+                Contacto
+              </a>
+              <a
+                href={site.github}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-xl border border-white/15 bg-white/5 px-4 py-2 font-medium text-white hover:bg-white/10"
+              >
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-lg">
+            <p className="text-sm text-white/60">Stack principal</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {["C#", ".NET", "EF Core", "SQL Server", "APIs", "HTML/CSS/JS"].map((x) => (
+                <Pill key={x}>{x}</Pill>
+              ))}
+            </div>
+
+            <div className="mt-6 rounded-2xl border border-white/10 bg-black/30 p-4">
+              <p className="text-sm text-white/70">
+                Disponible para: <span className="text-white">freelance / part-time / proyectos</span>
+              </p>
+              <p className="mt-2 text-sm text-white/60">
+                Respuesta en 24–48 hs. Hablemos por WhatsApp o por mail.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function About() {
+  return (
+    <section id="about" className="py-16 sm:py-24">
+      <Container>
+        <SectionTitle
+          kicker="About"
+          title="Sobre mí"
+          desc="Me gusta construir software con bases sólidas: arquitectura en capas, validaciones de negocio, DTOs y APIs claras."
+        />
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {[
+            { title: "Back-end", desc: "APIs en .NET con repositorios/servicios, reglas de negocio y endpoints prolijos." },
+            { title: "Base de datos", desc: "SQL Server, modelado, constraints, queries y performance cuando hace falta." },
+            { title: "Producto", desc: "Pienso en UX, flujos reales y mantenimiento: que sea simple para el usuario y para el equipo." },
+          ].map((c) => (
+            <div key={c.title} className="rounded-3xl border border-white/10 bg-white/5 p-6">
+              <h3 className="text-lg font-semibold text-white">{c.title}</h3>
+              <p className="mt-2 text-white/70">{c.desc}</p>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function Projects() {
+  return (
+    <section id="projects" className="py-16 sm:py-24">
+      <Container>
+        <SectionTitle kicker="Projects" title="Proyectos" desc="Una selección de cosas que construí (o estoy construyendo)." />
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {projects.map((p) => (
+            <a
+              key={p.title}
+              href={p.href}
+              className="group rounded-3xl border border-white/10 bg-white/5 p-6 hover:bg-white/10"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <h3 className="text-lg font-semibold text-white">{p.title}</h3>
+                <span className="text-white/50 group-hover:text-white/80">↗</span>
+              </div>
+              <p className="mt-2 text-white/70">{p.description}</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {p.stack.map((s) => (
+                  <Pill key={s}>{s}</Pill>
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function Testimonials() {
+  return (
+    <section id="testimonials" className="py-16 sm:py-24">
+      <Container>
+        <SectionTitle kicker="Testimonials" title="Referencias" desc="Si todavía no tenés testimonios, acá podemos poner “Logros” o “Resultados”." />
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {testimonials.map((t, i) => (
+            <div key={i} className="rounded-3xl border border-white/10 bg-white/5 p-6">
+              <p className="text-white/80">“{t.quote}”</p>
+              <p className="mt-4 text-sm font-medium text-white">{t.name}</p>
+              <p className="text-sm text-white/60">{t.title}</p>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function Contact() {
+  return (
+    <section id="contact" className="py-16 sm:py-24">
+      <Container>
+        <SectionTitle kicker="Contact" title="Contactame" desc="Dejame un mensaje y te respondo. También podés escribirme directo por WhatsApp." />
+
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+            <p className="text-white/70">
+              Email:{" "}
+              <a className="text-white underline" href={`mailto:${site.email}`}>
+                {site.email}
+              </a>
+            </p>
+            <p className="mt-2 text-white/70">
+              WhatsApp:{" "}
+              <a className="text-white underline" href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noreferrer">
+                +{site.whatsapp}
+              </a>
+            </p>
+            <p className="mt-6 text-sm text-white/60">
+              Tip: luego lo conectamos a un form real (Formspree) o a un endpoint propio.
+            </p>
+          </div>
+
+          <form
+            className="rounded-3xl border border-white/10 bg-white/5 p-6"
+            onSubmit={(e) => {
+              e.preventDefault();
+              alert("Form conectado en el siguiente paso 🙂");
+            }}
+          >
+            <label className="block text-sm text-white/70">
+              Nombre
+              <input className="mt-2 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-2 text-white outline-none focus:border-white/30" required />
+            </label>
+
+            <label className="mt-4 block text-sm text-white/70">
+              Email
+              <input
+                type="email"
+                className="mt-2 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-2 text-white outline-none focus:border-white/30"
+                required
+              />
+            </label>
+
+            <label className="mt-4 block text-sm text-white/70">
+              Mensaje
+              <textarea className="mt-2 min-h-[120px] w-full rounded-xl border border-white/10 bg-black/40 px-3 py-2 text-white outline-none focus:border-white/30" required />
+            </label>
+
+            <button className="mt-6 w-full rounded-xl bg-white px-4 py-2 font-medium text-black hover:bg-white/90">
+              Enviar
+            </button>
+          </form>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="border-t border-white/10 py-10">
+      <Container>
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-white/60">
+            © {new Date().getFullYear()} {site.name}. Todos los derechos reservados.
+          </p>
+          <div className="flex gap-4 text-sm">
+            <a className="text-white/70 hover:text-white" href={site.linkedin} target="_blank" rel="noreferrer">
+              LinkedIn
+            </a>
+            <a className="text-white/70 hover:text-white" href={site.github} target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+          </div>
+        </div>
+      </Container>
+    </footer>
+  );
+}
+
+export default function Page() {
+  return (
+    <main className="min-h-screen bg-black text-white">
+      <Header />
+      <Hero />
+      <About />
+      <Projects />
+      <Testimonials />
+      <Contact />
+      <Footer />
+    </main>
   );
 }
