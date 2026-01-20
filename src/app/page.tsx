@@ -6,7 +6,7 @@ function Container({ children }: { children: React.ReactNode }) {
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/80">
+    <span className="inline-flex items-center rounded-full bg-[var(--bg-card)] border border-[var(--border-card)] backdrop-blur-xl px-3 py-1 text-xs text-white/80">
       {children}
     </span>
   );
@@ -32,7 +32,7 @@ function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/40 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-[var(--border-card)] bg-black/60 backdrop-blur-xl">
       <Container>
         <div className="flex h-14 items-center justify-between">
           <a href="#top" className="font-semibold text-white">
@@ -106,7 +106,7 @@ function Hero() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-lg">
+          <div className="rounded-3xl bg-[var(--bg-card)] border border-[var(--border-card)] backdrop-blur-xl p-6 shadow-lg">
             <p className="text-sm text-white/60">Stack principal</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {["C#", ".NET", "EF Core", "SQL Server", "APIs", "HTML/CSS/JS"].map((x) => (
@@ -145,7 +145,7 @@ function About() {
             { title: "Base de datos", desc: "SQL Server, modelado, constraints, queries y performance cuando hace falta." },
             { title: "Producto", desc: "Pienso en UX, flujos reales y mantenimiento: que sea simple para el usuario y para el equipo." },
           ].map((c) => (
-            <div key={c.title} className="rounded-3xl border border-white/10 bg-white/5 p-6">
+            <div key={c.title} className="rounded-3xl bg-[var(--bg-card)] border border-[var(--border-card)] backdrop-blur-xl p-6">
               <h3 className="text-lg font-semibold text-white">{c.title}</h3>
               <p className="mt-2 text-white/70">{c.desc}</p>
             </div>
@@ -167,7 +167,7 @@ function Projects() {
             <a
               key={p.title}
               href={p.href}
-              className="group rounded-3xl border border-white/10 bg-white/5 p-6 hover:bg-white/10"
+              className="group rounded-3xl bg-[var(--bg-card)] border border-[var(--border-card)] backdrop-blur-xl p-6 hover:bg-white/10"
             >
               <div className="flex items-start justify-between gap-4">
                 <h3 className="text-lg font-semibold text-white">{p.title}</h3>
@@ -195,7 +195,7 @@ function Testimonials() {
 
         <div className="grid gap-6 md:grid-cols-3">
           {testimonials.map((t, i) => (
-            <div key={i} className="rounded-3xl border border-white/10 bg-white/5 p-6">
+            <div key={i} className="rounded-3xl bg-[var(--bg-card)] border border-[var(--border-card)] backdrop-blur-xl p-6">
               <p className="text-white/80">“{t.quote}”</p>
               <p className="mt-4 text-sm font-medium text-white">{t.name}</p>
               <p className="text-sm text-white/60">{t.title}</p>
@@ -214,7 +214,7 @@ function Contact() {
         <SectionTitle kicker="Contact" title="Contactame" desc="Dejame un mensaje y te respondo. También podés escribirme directo por WhatsApp." />
 
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+          <div className="rounded-3xl bg-[var(--bg-card)] border border-[var(--border-card)] backdrop-blur-xl p-6">
             <p className="text-white/70">
               Email:{" "}
               <a className="text-white underline" href={`mailto:${site.email}`}>
@@ -233,7 +233,7 @@ function Contact() {
           </div>
 
           <form 
-            className="rounded-3xl border border-white/10 bg-white/5 p-6"
+            className="rounded-3xl bg-[var(--bg-card)] border border-[var(--border-card)] backdrop-blur-xl p-6"
             action="mailto:tuemail@correo.com"
             method="post"
             encType="text/plain"
@@ -292,7 +292,7 @@ function Footer() {
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-[var(--bg-main)] text-white">
       <Header />
       <Hero />
       <About />
