@@ -233,13 +233,13 @@ function Contact() {
             </p>
           </div>
 
-          <form
+          <form 
             className="rounded-3xl border border-white/10 bg-white/5 p-6"
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert("Form conectado en el siguiente paso 🙂");
-            }}
+            action="mailto:tuemail@correo.com"
+            method="post"
+            encType="text/plain"
           >
+
             <label className="block text-sm text-white/70">
               Nombre
               <input className="mt-2 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-2 text-white outline-none focus:border-white/30" required />
