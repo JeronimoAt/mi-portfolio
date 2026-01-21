@@ -34,6 +34,8 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--border-card)] bg-black/60 backdrop-blur-xl">
       <Container>
+
+        
         <div className="flex h-14 items-center justify-between">
           <a href="#top" className="font-semibold text-white">
             {site.name}
