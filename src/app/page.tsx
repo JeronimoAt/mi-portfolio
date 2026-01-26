@@ -233,14 +233,15 @@ function Contact() {
             </p>
           </div>
 
-          <form 
-            className="rounded-3xl bg-[var(--bg-card)] border border-[var(--border-card)] backdrop-blur-xl p-6"
-            action="https://formspree.io/f/xreqerdp"
-            method="post"
-            encType="text/plain"
-          >
+          <form
+  action="https://formspree.io/f/xreqerdp"
+  method="POST"
+  className="rounded-3xl bg-[var(--bg-card)] border border-[var(--border-card)] backdrop-blur-xl p-6"
+>
+  <input type="hidden" name="_subject" value="Nuevo mensaje desde jeronimoat.dev" />
+  <input type="hidden" name="_redirect" value="https://jeronimoat.dev/gracias" />
 
-            <div className="grid gap-4">
+  <div className="grid gap-4">
     <div>
       <label className="block text-sm text-white/70 mb-2">Nombre</label>
       <input
@@ -269,11 +270,11 @@ function Contact() {
         required
         rows={6}
         className="w-full rounded-xl bg-black/30 border border-white/10 px-4 py-3 outline-none focus:border-white/30"
-        placeholder="Contame lo que buscas"
+        placeholder="Contame qué necesitás..."
       />
     </div>
 
-    {/* anti-spam honeypot (opcional) */}
+    {/* anti-spam honeypot */}
     <input type="text" name="_gotcha" className="hidden" />
 
     <button
@@ -284,11 +285,6 @@ function Contact() {
     </button>
   </div>
 
-  <input
-  type="hidden"
-  name="_redirect"
-  value="https://jeronimoat.dev/gracias"
-/>
 
           </form>
         </div>
