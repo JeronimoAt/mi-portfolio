@@ -76,7 +76,7 @@ function Hero() {
             </div>
 
             <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-              Construyo sistemas web para buscar{" "}
+              Construyo sistemas web para encontrar{" "}
               <span className="text-white/70">claridad y rendimiento</span> en tu negocio.
             </h1>
 

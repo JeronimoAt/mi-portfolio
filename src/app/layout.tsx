@@ -13,12 +13,51 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jeronimoat.dev"),
   title: {
-    default: "Jerónimo AT — Desarrollador Full-Stack .NET",
+    default: "Jerónimo Ahumada Torres — Desarrollador Full-Stack .NET",
     template: "%s | jeronimoat.dev",
   },
   description:
     "Desarrollador Full-Stack especializado en .NET, SQL Server y sistemas web orientados a reglas de negocio.",
+  keywords: [
+    "Desarrollador .NET",
+    "C#",
+    "SQL Server",
+    "ASP.NET",
+    "Full Stack",
+    "Software",
+    "Córdoba",
+    "Argentina",
+  ],
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: "Jerónimo Ahumada Torres — Desarrollador Full-Stack .NET",
+    description:
+      "Sistemas web en .NET, APIs, SQL Server y arquitectura limpia.",
+    url: "https://jeronimoat.dev",
+    siteName: "Jerónimo Ahumada Torres",
+    locale: "es_AR",
+    type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Jerónimo Ahumada Torres — Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jerónimo Ahumada Torres — Desarrollador Full-Stack .NET",
+    description:
+      "Desarrollador Full-Stack especializado en .NET y SQL Server.",
+    images: ["/og.png"],
+  },
 };
 
 

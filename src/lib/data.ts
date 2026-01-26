@@ -1,5 +1,5 @@
 export const site = {
-  name: "Ahumada Torres, Jeronimo",
+  name: "Ahumada Torres Jeronimo",
   role: "Full-Stack .NET Developer",
   location: "Córdoba, Argentina",
   email: "ahumadajero@gmail.com",
@@ -19,7 +19,7 @@ export const projects = [
 
 export const testimonials = [
   {
-    quote: "Responsable, rápido y muy prolijo con los detalles.",
+    quote: "Responsable y prolijo con los detalles.",
     name: "Cliente / Referencia",
     title: "— (opcional)",
   },
