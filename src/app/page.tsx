@@ -224,45 +224,72 @@ function Contact() {
               </a>
             </p>
             <p className="mt-2 text-white/70">
-              WhatsApp:{"5493525531252"}
+              WhatsApp:{" "}
               <a className="text-white underline" href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noreferrer">
                 +{site.whatsapp}
               </a>
             </p>
             <p className="mt-6 text-sm text-white/60">
-              Tip: luego lo conectamos a un form real (Formspree) o a un endpoint propio.
             </p>
           </div>
 
           <form 
             className="rounded-3xl bg-[var(--bg-card)] border border-[var(--border-card)] backdrop-blur-xl p-6"
-            action="mailto:tuemail@correo.com"
+            action="https://formspree.io/f/xreqerdp"
             method="post"
             encType="text/plain"
           >
 
-            <label className="block text-sm text-white/70">
-              Nombre
-              <input className="mt-2 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-2 text-white outline-none focus:border-white/30" required />
-            </label>
+            <div className="grid gap-4">
+    <div>
+      <label className="block text-sm text-white/70 mb-2">Nombre</label>
+      <input
+        name="name"
+        required
+        className="w-full rounded-xl bg-black/30 border border-white/10 px-4 py-3 outline-none focus:border-white/30"
+        placeholder="Tu nombre"
+      />
+    </div>
 
-            <label className="mt-4 block text-sm text-white/70">
-              Email
-              <input
-                type="email"
-                className="mt-2 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-2 text-white outline-none focus:border-white/30"
-                required
-              />
-            </label>
+    <div>
+      <label className="block text-sm text-white/70 mb-2">Email</label>
+      <input
+        type="email"
+        name="email"
+        required
+        className="w-full rounded-xl bg-black/30 border border-white/10 px-4 py-3 outline-none focus:border-white/30"
+        placeholder="tu@email.com"
+      />
+    </div>
 
-            <label className="mt-4 block text-sm text-white/70">
-              Mensaje
-              <textarea className="mt-2 min-h-[120px] w-full rounded-xl border border-white/10 bg-black/40 px-3 py-2 text-white outline-none focus:border-white/30" required />
-            </label>
+    <div>
+      <label className="block text-sm text-white/70 mb-2">Mensaje</label>
+      <textarea
+        name="message"
+        required
+        rows={6}
+        className="w-full rounded-xl bg-black/30 border border-white/10 px-4 py-3 outline-none focus:border-white/30"
+        placeholder="Contame lo que buscas"
+      />
+    </div>
 
-            <button className="mt-6 w-full rounded-xl bg-white px-4 py-2 font-medium text-black hover:bg-white/90">
-              Enviar
-            </button>
+    {/* anti-spam honeypot (opcional) */}
+    <input type="text" name="_gotcha" className="hidden" />
+
+    <button
+      type="submit"
+      className="mt-2 rounded-xl bg-white px-4 py-3 font-medium text-black hover:bg-white/90 transition"
+    >
+      Enviar
+    </button>
+  </div>
+
+  <input
+  type="hidden"
+  name="_redirect"
+  value="https://jeronimoat.dev/gracias"
+/>
+
           </form>
         </div>
       </Container>
