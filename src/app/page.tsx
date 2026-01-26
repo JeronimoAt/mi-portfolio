@@ -213,7 +213,7 @@ function Contact() {
   return (
     <section id="contact" className="py-16 sm:py-24">
       <Container>
-        <SectionTitle kicker="Contact" title="Contactame" desc="Dejame un mensaje y te respondo. También podés escribirme directo por WhatsApp." />
+        <SectionTitle kicker="Contact" title="Contacto" desc="Dejame tu mensaje y me contacto con vos. También me podés escribir al WhatsApp." />
 
         <div className="grid gap-6 md:grid-cols-2">
           <div className="rounded-3xl bg-[var(--bg-card)] border border-[var(--border-card)] backdrop-blur-xl p-6">

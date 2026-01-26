@@ -3,9 +3,9 @@ export const site = {
   role: "Full-Stack .NET Developer",
   location: "Córdoba, Argentina",
   email: "ahumadajero@gmail.com",
-  whatsapp: "3525-531252", // sin +
+  whatsapp: "5493525531252", // sin +
   github: "https://github.com/JeronimoAt",
-  linkedin: "https://www.linkedin.com/in/tuusuario/",
+  linkedin: "https://www.linkedin.com/in/jeronimo-ahumada-torres-b458b9b7/",
 };
 
 export const projects = [
