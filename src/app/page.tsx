@@ -224,7 +224,7 @@ function Contact() {
               </a>
             </p>
             <p className="mt-2 text-white/70">
-              WhatsApp:{" "}
+              WhatsApp:{"5493525531252"}
               <a className="text-white underline" href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noreferrer">
                 +{site.whatsapp}
               </a>
