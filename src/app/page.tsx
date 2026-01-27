@@ -1,18 +1,21 @@
 import { site, projects, testimonials } from "@/lib/data";
-import Reveal from "./components/Reveal";
+import type { ReactNode } from "react";
+import Reveal from "./components/RevealOnScroll";
 
 
-function Container({ children }: { children: React.ReactNode }) {
+
+function Container({ children }: { children: ReactNode }) {
   return <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">{children}</div>;
 }
 
-function Pill({ children }: { children: React.ReactNode }) {
+function Pill({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex items-center rounded-full bg-[var(--bg-card)] border border-[var(--border-card)] backdrop-blur-xl px-3 py-1 text-xs text-white/80">
+    <span className="inline-flex items-center rounded-full bg-[var(--bg-card)] border border-[var(--border-card)] px-3 py-1">
       {children}
     </span>
   );
 }
+
 
 function SectionTitle({ kicker, title, desc }: { kicker?: string; title: string; desc?: string }) {
   return (
