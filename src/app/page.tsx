@@ -1,4 +1,6 @@
 import { site, projects, testimonials } from "@/lib/data";
+import Reveal from "./components/Reveal";
+
 
 function Container({ children }: { children: React.ReactNode }) {
   return <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">{children}</div>;
@@ -270,7 +272,7 @@ function Contact() {
         required
         rows={6}
         className="w-full rounded-xl bg-black/30 border border-white/10 px-4 py-3 outline-none focus:border-white/30"
-        placeholder="Contame qué necesitás..."
+        placeholder="Contame lo que necesitas."
       />
     </div>
 
@@ -325,6 +327,23 @@ export default function Page() {
       <Testimonials />
       <Contact />
       <Footer />
+      <Reveal>
+  <About />
+</Reveal>
+
+<Reveal delayMs={100}>
+  <Projects />
+</Reveal>
+
+<Reveal delayMs={150}>
+  <Testimonials />
+</Reveal>
+
+<Reveal delayMs={200}>
+  <Contact />
+</Reveal>
+
     </main>
   );
 }
+
