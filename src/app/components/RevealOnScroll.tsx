@@ -34,9 +34,9 @@ export default function Reveal({ children, className = "", delayMs = 0 }: Props)
     <div
       ref={ref}
       className={[
+        "reveal-content",
         "transition-all duration-700 ease-out",
         shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
-        delayMs ? "" : "",
         className,
       ].join(" ")}
       style={delayMs ? { transitionDelay: `${delayMs}ms` } : undefined}

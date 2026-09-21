@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function GraciasPage() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-[var(--bg-main)] text-white px-6">
@@ -10,12 +12,12 @@ export default function GraciasPage() {
           Ya recibí tu consulta. Te voy a responder a la brevedad.
         </p>
 
-        <a
+        <Link
           href="/"
           className="inline-block rounded-xl bg-white px-4 py-2 font-medium text-black hover:bg-white/90 transition"
         >
           Volver al inicio
-        </a>
+        </Link>
       </div>
     </main>
   );
